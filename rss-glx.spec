@@ -16,7 +16,6 @@ License:	GPL
 Source0:	http://dl.sourceforge.net/rss-glx/%{rname}_%{version}.tar.bz2
 # Source0-md5:	c896bd55e9ffdfad69bda4422b42e03b
 Source1:	%{name}_install
-Patch0:		%{name}-asm_cpu_detect_fix.patch
 URL:		http://rss-glx.sourceforge.net/
 BuildRequires:	ImageMagick-devel >= 5.5.7
 %{!?_without_sound:BuildRequires:	OpenAL-devel}
@@ -41,7 +40,6 @@ Wygaszacze ekranu oparte o GLX dla systemu X11.
 
 %prep
 %setup -qn %{rname}_%{version}
-#%patch -p1
 
 %build
 rm -f missing
