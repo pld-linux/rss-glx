@@ -1,0 +1,25 @@
+#!/bin/sh
+tmpfile=`mktemp ~/tmp/xrc.XXXXXX`
+xssdefaults=~/.xscreensaver
+cp $xssdefaults $xssdefaults.old
+cp $xssdefaults $tmpfile
+cat $tmpfile | sed '
+/programs:/ a\
+  GL:                "Cyclone"  cyclone --root                              \\n\\\
+  GL:               "Euphoria"  euphoria --root                             \\n\\\
+  GL:             "Fieldlines"  fieldlines --root                           \\n\\\
+  GL:                 "Flocks"  flocks --root                               \\n\\\
+  GL:                   "Flux"  flux --root                                 \\n\\\
+  GL:                 "Helios"  helios --root                               \\n\\\
+  GL:                "Lattice"  lattice --root                              \\n\\\
+  GL:                 "Plasma"  plasma --root                               \\n\\\
+  GL:              "Skyrocket"  skyrocket --root                            \\n\\\
+  GL:             "Solarwinds"  solarwinds --root                           \\n\\\
+  GL:              "Colorfire"  colorfire --root                            \\n\\\
+  GL:            "Hufos Smoke"  hufo_smoke --root                           \\n\\\
+  GL:           "Hufos Tunnel"  hufo_tunnel --root                          \\n\\\
+  GL:             "Sundancer2"  sundancer2 --root                           \\n\\\
+  GL:                   "BioF"  biof --root                                 \\n\\\
+  GL:            "BusySpheres"  busyspheres --root                          \\n\\\' \
+  > $xssdefaults
+rm $tmpfile
