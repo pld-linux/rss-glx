@@ -29,8 +29,8 @@ Requires:	OpenGL
 Requires:	xscreensaver
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _noautoreqdep   libGL.so.1 libGLU.so.1 libGLcore.so.1
-%define         _sysconfdir     /etc/X11
+%define		_noautoreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
+%define		_sysconfdir	/etc/X11
 
 %description
 GLX screensavers for the X11 windowing system.
@@ -48,7 +48,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-        --with-configdir=%{_sysconfdir}/xscreensaver \
+	--with-configdir=%{_sysconfdir}/xscreensaver \
 	%{!?with_sound: --disable-sound}
 
 %{__make} \
