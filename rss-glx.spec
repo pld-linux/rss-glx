@@ -3,7 +3,7 @@
 # - more detailed desc.
 #
 # Conditional build:
-# _without_sound 	- without sound
+%bcond_without	sound	# without sound
 #
 %define		rname	rss-glx
 Summary:	The Really Slick Screensavers
@@ -18,7 +18,7 @@ Source0:	http://dl.sourceforge.net/rss-glx/%{rname}_%{version}.tar.bz2
 Source1:	%{name}_install
 URL:		http://rss-glx.sourceforge.net/
 BuildRequires:	ImageMagick-devel >= 5.5.7
-%{!?_without_sound:BuildRequires:	OpenAL-devel}
+%{?with_sound:BuildRequires:	OpenAL-devel}
 BuildRequires:	OpenGL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -49,7 +49,7 @@ rm -f missing
 %{__automake}
 %configure \
         --with-configdir=%{_sysconfdir}/xscreensaver \
-	%{?_without_sound: --disable-sound}
+	%{!?with_sound: --disable-sound}
 
 %{__make} \
 	CFLAGS="%{rpmcflags}" \
