@@ -11,7 +11,7 @@ Version:	0.7.4
 Release:	0.1
 Group:		X11/Applications
 License:	GPL
-Source0:	http://heanet.dl.sourceforge.net/sourceforge/rss-glx/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/sourceforge/rss-glx/%{name}-%{version}.tar.bz2
 # Source0-md5:	4c3dfd7da7bed6af053febae860a09fc
 Source1:	%{name}_install
 Patch0:		%{name}-asm_cpu_detect_fix.patch
