@@ -5,18 +5,20 @@
 # Conditional build:
 # _without_sound 	- without sound
 #
+%define		rname	rss-glx
 Summary:	The Really Slick Screensavers
 Summary(pl):	Naprawdê zgrabne wygaszacze ekranu
 Name:		rss_glx
-Version:	0.7.4
+Version:	0.7.6
 Release:	0.1
 Group:		X11/Applications
 License:	GPL
-Source0:	http://dl.sourceforge.net/rss-glx/%{name}-%{version}.tar.bz2
-# Source0-md5:	4c3dfd7da7bed6af053febae860a09fc
+Source0:	http://dl.sourceforge.net/rss-glx/%{rname}_%{version}.tar.bz2
+# Source0-md5:	c896bd55e9ffdfad69bda4422b42e03b
 Source1:	%{name}_install
 Patch0:		%{name}-asm_cpu_detect_fix.patch
 URL:		http://rss-glx.sourceforge.net/
+BuildRequires:	ImageMagick-devel >= 5.5.7
 %{!?_without_sound:BuildRequires:	OpenAL-devel}
 BuildRequires:	OpenGL-devel
 BuildRequires:	XFree86-devel
@@ -38,8 +40,8 @@ GLX screensavers for the X11 windowing system.
 Wygaszacze ekranu oparte o GLX dla systemu X11.
 
 %prep
-%setup -q
-%patch -p1
+%setup -qn %{rname}_%{version}
+#%patch -p1
 
 %build
 rm -f missing
