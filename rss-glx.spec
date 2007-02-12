@@ -7,7 +7,7 @@
 #
 %define		rname	rss-glx
 Summary:	The Really Slick Screensavers
-Summary(pl):	Naprawdê zgrabne wygaszacze ekranu
+Summary(pl.UTF-8):   NaprawdÄ™ zgrabne wygaszacze ekranu
 Name:		rss_glx
 Version:	0.7.6
 Release:	0.1
@@ -35,7 +35,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GLX screensavers for the X11 windowing system.
 
-%description -l pl
+%description -l pl.UTF-8
 Wygaszacze ekranu oparte o GLX dla systemu X11.
 
 %prep
