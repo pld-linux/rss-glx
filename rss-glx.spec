@@ -7,7 +7,7 @@
 #
 %define		rname	rss-glx
 Summary:	The Really Slick Screensavers
-Summary(pl.UTF-8):   Naprawdę zgrabne wygaszacze ekranu
+Summary(pl.UTF-8):	Naprawdę zgrabne wygaszacze ekranu
 Name:		rss_glx
 Version:	0.7.6
 Release:	0.1
