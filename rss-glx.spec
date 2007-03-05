@@ -5,15 +5,14 @@
 # Conditional build:
 %bcond_without	sound	# without sound
 #
-%define		rname	rss-glx
 Summary:	The Really Slick Screensavers
 Summary(pl.UTF-8):	Naprawdę zgrabne wygaszacze ekranu
-Name:		rss_glx
+Name:		rss-glx
 Version:	0.8.1
 Release:	1
 Group:		X11/Applications
 License:	GPL
-Source0:	http://dl.sourceforge.net/rss-glx/%{rname}_%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/rss-glx/%{name}_%{version}.tar.bz2
 # Source0-md5:	a2bdf0e10ee4e89c8975f313c5c0ba6f
 Source1:	%{name}_install
 URL:		http://rss-glx.sourceforge.net/
@@ -26,6 +25,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 Requires:	OpenGL
 Requires:	xscreensaver
+Obsoletes:	rss_glx
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
@@ -39,7 +39,7 @@ Wygaszacze ekranu oparte o GLX dla systemu X11.
 
 %package -n gnome-screensaver-theme-rss-glx
 Summary:	GNOME Screensaver themes for the Really Slick Screensavers
-Summary(pl.UTF-8):	Tematy wygaszacza ekranu GNOME dla naprawdę zgrabnych wygaszaczy ekranu
+Summary(pl.UTF-8):	Motywy wygaszacza ekranu GNOME dla naprawdę zgrabnych wygaszaczy ekranu
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
@@ -47,10 +47,10 @@ Requires:	%{name} = %{version}-%{release}
 GLX screensaver themes for GNOME Screensaver.
 
 %description -n gnome-screensaver-theme-rss-glx -l pl.UTF-8
-Tematy oparte o GLX dla wygaszacza ekranu GNOME.
+Motywy oparte o GLX dla wygaszacza ekranu GNOME.
 
 %prep
-%setup -qn %{rname}_%{version}
+%setup -qn %{name}_%{version}
 
 %build
 rm -f missing
