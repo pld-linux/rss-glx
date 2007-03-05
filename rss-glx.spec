@@ -29,7 +29,6 @@ Requires:	xscreensaver
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
-%define		_sysconfdir	/etc/X11
 %define		_themedir	/usr/share/applications/screensavers
 
 %description
@@ -60,7 +59,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-configdir=%{_sysconfdir}/xscreensaver \
+	--with-configdir=%{_datadir}/xscreensaver \
 	%{!?with_sound: --disable-sound}
 
 %{__make} \
@@ -136,7 +135,7 @@ echo
 %doc README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/xscreensaver/*
-%attr(755,root,root) %{_sysconfdir}/xscreensaver/*.xml
+%attr(755,root,root) %{_datadir}/xscreensaver/*.xml
 %{_mandir}/man1/*
 
 %files -n gnome-screensaver-theme-rss-glx
