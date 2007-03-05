@@ -71,8 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_libdir}/xscreensaver
-install -d $RPM_BUILD_ROOT%{_themedir}
+install -d $RPM_BUILD_ROOT{%{_libdir}/{xscreensaver,gnome-screensaver},%{_themedir}}
 mv -f $RPM_BUILD_ROOT%{_bindir}/* $RPM_BUILD_ROOT%{_libdir}/xscreensaver
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}
@@ -89,13 +88,14 @@ generate_fix_desktop_files_links () {
 Encoding=UTF-8
 Name=${name}
 Comment=${desc}
-TryExec=rss-glx-${trycmd}
-Exec=rss-glx-${cmd} -r
+TryExec=${trycmd}
+Exec=${cmd} -r
 StartupNotify=false
 Terminal=false
 Type=Application
 Categories=Screensaver
 EOF
+		ln -sf "%{_libdir}/xscreensaver/${trycmd}" "$RPM_BUILD_ROOT%{_libdir}/gnome-screensaver/${trycmd}"
 	done
 }
 cat << EOF | generate_fix_desktop_files_links
@@ -140,4 +140,5 @@ echo
 
 %files -n gnome-screensaver-theme-rss-glx
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gnome-screensaver/*
 %{_themedir}/*.desktop
